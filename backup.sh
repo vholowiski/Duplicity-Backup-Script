@@ -12,4 +12,4 @@ STAGING_LOCATION=/root/staging
 WWW_LOCATION=/var/www
 
 nice -10 /usr/bin/duplicity remove-older-than 1Y s3+http://$AWS_BUCKET
-nice -10 /usr/bin/duplicity --include="$WWW_LOCATION" --include="$STAGING_LOCATION" --exclude="**" / s3+http://$AWS_BUCKET--full-if-older-than 1M | mail -s "Nightly Backup Results" $EMAIL
+nice -10 /usr/bin/duplicity --include="$WWW_LOCATION" --include="$STAGING_LOCATION" --exclude="**" / s3+http://$AWS_BUCKET --full-if-older-than 1M | mail -s "Nightly Backup Results" $EMAIL
